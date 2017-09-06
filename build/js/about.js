@@ -240,7 +240,7 @@
 /******/ 				};
 /******/ 			});
 /******/ 			hotUpdate = {};
-/******/ 			var chunkId = 0;
+/******/ 			var chunkId = 1;
 /******/ 			{ // eslint-disable-line no-lone-blocks
 /******/ 				/*globals chunkId */
 /******/ 				hotEnsureUpdateChunk(chunkId);
@@ -720,7 +720,7 @@
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return hotCreateRequire(1)(__webpack_require__.s = 1);
+/******/ 	return hotCreateRequire(2)(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -730,11 +730,11 @@
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 1 */
+/* 1 */,
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(0)
-console.log(222)
 
 /***/ })
 /******/ ]);
