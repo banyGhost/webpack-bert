@@ -45,7 +45,11 @@ var config = {
     new ExtractTextPlugin("styles.css"),
     new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin('build'),
-    new HtmlWebpackPlugin()
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      chunks: ['index'],
+      template: './src/views/index.html'
+    })
   ],
   devServer: {
     contentBase: path.join(__dirname, "build"),
