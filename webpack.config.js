@@ -11,11 +11,13 @@ var config = {
   },
   output: {
     path: path.resolve(__dirname, './build'),
-    publicPath: './',
     filename: 'js/[name].js'
   },
   module: {
     rules: [{
+      test: /\.html$/,
+      loader: 'html-loader'
+    }, {
       test: /\.css$/,
       use: ExtractTextPlugin.extract({
         fallback: "style-loader",
@@ -43,18 +45,23 @@ var config = {
   },
   plugins: [
     new ExtractTextPlugin("styles.css"),
-    new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin('build'),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       chunks: ['index'],
       template: './src/views/index.html'
-    })
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'about.html',
+      chunks: ['about'],
+      template: './src/views/about.html'
+    }),
+    new webpack.HotModuleReplacementPlugin()
   ],
   devServer: {
-    contentBase: path.join(__dirname, "build"),
-    compress: true,
-    port: 9000
+    hot: true,
+    port: 9000,
+    contentBase: path.join(__dirname, 'build')
   }
 }
 

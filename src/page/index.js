@@ -1,2 +1,3 @@
 require('../styles/index.less')
-console.log(222)
+require('../views/index.html')
+console.log(112312323)
