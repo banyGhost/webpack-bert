@@ -7,6 +7,8 @@
 @shuiCellColor: #fff;
 @shuiCellBorderColor: #e5e5e5;
 @shuiCellMarginTop: 12px;
+@shuiCellFontColor: #666;
+@shuiCellActiveColor: #ececec;
 body {
   background-color: @gobalBodyColor;
 }
@@ -22,6 +24,7 @@ body {
   line-height: @shuiCellLineHeight;
   overflow: hidden;
   margin-top: @shuiCellMarginTop;
+  color: @shuiCellFontColor;
   &:before {
     content: " ";
     position: absolute;
@@ -53,11 +56,48 @@ body {
     position: relative;
     display: flex;
     align-items: center;
+    &:not(:last-child):after {
+      content: " ";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      height: 1px;
+      border-bottom: 1px solid @shuiCellBorderColor;
+      color: @shuiCellBorderColor;
+      transform-origin: 0 100%;
+      transform: scaleY(0.5);
+      z-index: 2;
+    }
     .shui-cell_bd {
       flex: 1;
     }
     .shui-cell_ft {
       padding-left: 5px;
     }
+  }
+}
+
+.shui-cell_link {
+  .shui-cell_bd {
+    &:after {
+      content: " ";
+      display: inline-block;
+      height: 6px;
+      width: 6px;
+      border-width: 2px 2px 0 0;
+      border-color: #C8C8CD;
+      border-style: solid;
+      transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+      position: relative;
+      top: -2px;
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      margin-top: -4px;
+    }
+  }
+  &:active{
+    background-color: @shuiCellActiveColor;
   }
 }
