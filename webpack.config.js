@@ -3,12 +3,15 @@ var webpack = require('webpack')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var CleanWebpackPlugin = require('clean-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
+var precss = require('precss')
+var autoprefixer = require('autoprefixer')
 
 var config = {
   entry: {
     index: './src/page/index.js',
     about: './src/page/about.js'
   },
+  devtool: '#cheap-source-map',
   output: {
     path: path.resolve(__dirname, './build'),
     filename: 'js/[name].js'
@@ -21,13 +24,13 @@ var config = {
       test: /\.css$/,
       use: ExtractTextPlugin.extract({
         fallback: "style-loader",
-        use: "css-loader"
+        use: "css-loader!postcss-loader"
       })
     }, {
       test: /\.less$/,
       use: ExtractTextPlugin.extract({
         fallback: "style-loader",
-        use: "css-loader!less-loader"
+        use: "css-loader!less-loader!postcss-loader"
       })
     }, {
       test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

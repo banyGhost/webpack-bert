@@ -1,0 +1,63 @@
+@import 'gobal.less';
+@shuiCellFontSize: 16px;
+@shuiCellHeight: 45px;
+@shuiCellPaddingVertical: 10px;
+@shuiCellPaddingHorizontal: 15px;
+@shuiCellLineHeight: unit((@shuiCellHeight - 2 * @shuiCellPaddingVertical) / @shuiCellFontSize);
+@shuiCellColor: #fff;
+@shuiCellBorderColor: #e5e5e5;
+@shuiCellMarginTop: 10px;
+body {
+  background-color: @gobalBodyColor;
+}
+
+.shui-cells_title {
+  padding: 0 @shuiCellPaddingHorizontal;
+}
+
+.shui-cells {
+  position: relative;
+  background-color: @shuiCellColor;
+  font-size: @shuiCellFontSize;
+  line-height: @shuiCellLineHeight;
+  overflow: hidden;
+  margin-top: @shuiCellMarginTop;
+  &:before {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 1px;
+    border-top: 1px solid @shuiCellBorderColor;
+    color: @shuiCellBorderColor;
+    transform-origin: 0 0;
+    transform: scaleY(0.5);
+    z-index: 2;
+  }
+  &:after {
+    content: " ";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 1px;
+    border-bottom: 1px solid @shuiCellBorderColor;
+    color: @shuiCellBorderColor;
+    transform-origin: 0 100%;
+    transform: scaleY(0.5);
+    z-index: 2;
+  }
+  .shui-cell {
+    padding: @shuiCellPaddingVertical @shuiCellPaddingHorizontal;
+    position: relative;
+    display: flex;
+    align-items: center;
+    .shui-cell_bd {
+      flex: 1;
+    }
+    .shui-cell_ft {
+      padding-left: 5px;
+    }
+  }
+}
