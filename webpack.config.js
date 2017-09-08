@@ -3,8 +3,6 @@ var webpack = require('webpack')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var CleanWebpackPlugin = require('clean-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
-var precss = require('precss')
-var autoprefixer = require('autoprefixer')
 
 var config = {
   entry: {
@@ -18,6 +16,15 @@ var config = {
   },
   module: {
     rules: [{
+      test: /\.js$/,
+      use: {
+        loader: "babel-loader",
+        options: {
+          presets: ["es2015"]
+        }
+      },
+      exclude: /node_modules/
+    }, {
       test: /\.html$/,
       loader: 'html-loader'
     }, {

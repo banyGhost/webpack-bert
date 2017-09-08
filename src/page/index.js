@@ -1,3 +1,4 @@
-require('../styles/index.less')
-require('../views/index.html')
-console.log(qrq)
+import '../styles/index.less'
+import '../views/index.html'
+
+console.log(111)
