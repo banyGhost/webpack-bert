@@ -16,6 +16,9 @@ var config = {
   },
   module: {
     rules: [{
+      test: /\.vue$/,
+      loader: 'vue-loader'
+    }, {
       test: /\.js$/,
       use: {
         loader: "babel-loader",
@@ -72,6 +75,11 @@ var config = {
     hot: true,
     port: 9000,
     contentBase: path.join(__dirname, 'build')
+  },
+  resolve: {
+    alias: {
+      'vue': 'vue/dist/vue.js'
+    }
   }
 }
 

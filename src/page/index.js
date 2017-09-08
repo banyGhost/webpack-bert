@@ -1,4 +1,9 @@
+import Vue from 'vue'
 import '../styles/index.less'
-import '../views/index.html'
+import App from '../components/Index.vue'
 
-console.log(111)
+new Vue({
+  el: '#app',
+  template: '<App/>',
+  components: { App }
+})
